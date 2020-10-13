@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Global CSS files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--media query related css-->
+    <link rel="stylesheet" href="assets/css/device.css">
+    <title>Chalkboard - Chalkboard Pictures </title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="upload_page_wrapper">
+                   
+                   
+                    <div class="upload_header_section pa-20">
+                  <!--new global header-->
+                    <!--global header-->
+                   <div class="globalHeader">
+                      <!--top right side section-->
+                       <div class="profile_section">
+                        <div class="badgeIcon">
+                         <img src="assets/images/badge.png" class="img-fluid">
+                         </div>
+                         
+                          <div class="nameBlock mr-10">
+                               <p class="user_name">Jade Anderson</p>
+                               <p class="user_level">Learner</p>
+                          </div>
+                          
+                           <div class="profileIconBlock">
+                               <a href="#">
+                                   <img src="assets/images/profile_pic.png" 
+                                   class="img-fluid profileIcon">
+                               </a>
+                           </div>
+                           
+                           <div class="logout mr-10">
+                               <a href="#" class="no-anchor">
+                               Logout
+                               <img src="assets/images/logout.png" 
+                               class="img-fluid">
+                               </a> 
+                          </div> 
+                       </div>
+                       <!--top right side section ends here-->
+                       
+                       <!--logo block-->
+                       <div class="text-center cb_logoBlock">
+                           <img src="assets/images/cblogo.png" class="img-fluid chalkboard_logo">
+                           <h4 class="chalkboard_label">Chalkboard</h4>
+                       </div>
+                       <!--logo block ends here-->
+                   </div>
+                   <!--global header ends here-->
+                       
+                    <!--new global header ends here-->
+                        <div class="subHeader text-center"> 
+                            <h4>Pictures</h4>
+                            <p class="class_names">Class 1A, 1B, 1C</p>
+                        </div>
+                    </div>
+                    
+                    <!--upload block setion starts here-->
+                    <div class="upload_block_wrapper">
+
+                      <div class="upload_block_header d-flex flex-column align-items-center">
+                          <div class="header_field_wrapper mb-25">
+                             <img src="assets/images/editIcon.png" class="edit_icon">
+                              <input class="text-center form-control header_field" type="text" placeholder="Draw your own Treasure Map">
+                          </div>
+
+<!--
+                          <div class="subHeader_field_wrapper mb-25">
+                              <img src="assets/images/editIcon.png" class="edit_icon">
+                              <textarea class="form-control subHeader_field" rows="3" placeholder="Last summer, I decided to choose a less popular place on the French border with Switzerland and Germany."></textarea>
+                          </div>
+-->
+                      </div>
+                       
+                        <div class="row pl-30 pr-30">
+                            <div class="col-12 mb-10">
+                                <div class="storiesBlock upload_inner"> 
+                                    <div class="upload_block text-center">
+                                        <div class="bordered_block">
+                                        <!--drag and drop section-->
+                                        <div class="upload_file_block" id="buttonUploads1">
+                                        <div>
+                                            <span class="input-group-btn">
+                                                <span class="btn btn-default drag-btn">
+                                                   <input type="file" id="dragImg">
+                                                    <img src="assets/images/dragImg2.png" class="img-fluid" id="dragImagePlaceholder">
+                                                </span>
+                                            </span>
+                                         </div>
+                                        <img id="drag-img-preview" class="img-fluid">
+                                    </div>
+                                     <!--drag and drop section ends here-->
+                                     
+                                    <!--browse and preview code-->
+                                    <div class="upload_file_block2" id="buttonUploads2">
+                                        <div id="buttonUploadBtn">
+                                            <span class="input-group-btn" >
+                                                <span class="btn btn-default browse-btn">
+                                                    BROWSE<input type="file" id="browseImg">
+                                                </span>
+                                            </span>
+                                         </div>
+                                        <img id="img-preview" class="img-fluid">
+                                    </div>
+                                    <!--browse and preview code ends here-->
+                                           <div id="buttonUploads3">
+                                            <p>OR</p>
+                                            <a role="button" class="btn btn-dark cb_btn" data-toggle="modal" href="#">
+                                                CREATE USING TOOL
+                                            </a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-25"> 
+                                <div class="storiesBlock comment_block">
+                                    <textarea class="form-control uploadCommentArea scroll_bar" id="uploadComment" rows="10" placeholder="Start Typing Here..." maxlength="1250"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <!--comment section-->
+                        <div class="position-relative">
+                        <div class="row no-gutters upload_comment_block justify-content-between align-items-center">
+<!--
+                            <div class="col-auto icon_block">
+                                <a class="icon_labels no-anchor" href="#"><img src="assets/images/prev_icon.png" class="img-fluid nav_icons">
+                                    Previous</a>
+                            </div>
+-->
+                            <div class="col pl-20 pr-20">
+
+                                <!--buttons block-->
+                                <div class="row no-gutters justify-content-center">
+                                    <div class="col-auto">
+                                        <button type="button" class="btn btn-dark cb_btn mr-30 mb-20">
+                                            SUBMIT
+                                        </button>
+
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" class="btn btn-dark cb_btn bordered mr-30 mb-20" data-dismiss="modal">
+                                            SAVE
+                                        </button>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" class="btn btn-dark cb_btn cancelBtn mb-20" data-dismiss="modal">
+                                            CANCEL
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--buttons block ends here-->
+
+                            </div>
+<!--
+                            <div class="col-auto icon_block">
+                                <a class="icon_labels no-anchor" href="#">
+                                    <img src="assets/images/next_icon.png" class="img-fluid nav_icons">
+                                    Next</a>
+                            </div>
+-->
+                        </div>
+                        </div>
+                        <!--comment section-->
+                        
+                        
+                        
+                    </div>
+                    <!--upload block setion ends here-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+
+    <!--script for the upload file button and preview-->
+
+    <script>
+        $(document).ready(function() {
+            $(document).on('change', '.browse-btn :file', function() {
+                var input = $(this),
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [label]);
+            });
+ 
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#img-preview').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#browseImg").change(function() {
+                readURL(this);
+                document.getElementById("buttonUploads1").style.display = "none";
+                document.getElementById("buttonUploads3").style.display = "none"; 
+                document.getElementById("buttonUploadBtn").style.display = "none";
+//                document.getElementsByClassName("bordered_block")[0].style.border = "none";
+            });
+        });
+    </script>
+    
+    <!--script for drag and drop file-->
+    <script>
+        $(document).ready(function() {
+            $(document).on('change', '.drag-btn :file', function() {
+                var input = $(this),
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [label]);
+            });
+ 
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#drag-img-preview').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#dragImg").change(function() {
+                readURL(this);
+                document.getElementById("dragImagePlaceholder").style.display = "none";
+                document.getElementById("buttonUploads2").style.display = "none";
+                document.getElementById("buttonUploads3").style.display = "none";
+//                document.getElementsByClassName("bordered_block")[0].style.border = "none";
+            });
+        });
+    </script>
+    
+    <!--script for equal height columns-->
+    <script src="assets/plugins/jquery.matchHeight.js"></script>
+    
+    <script>
+        $(function() {
+            $('.storiesBlock').matchHeight();
+        });
+    </script>
+</body>
+
+</html>

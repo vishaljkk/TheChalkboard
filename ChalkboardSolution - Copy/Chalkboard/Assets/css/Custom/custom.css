@@ -1,0 +1,5 @@
+﻿.error {
+    empty-cells: hide;
+    border: 1px solid red !important;
+    border-radius: 5px;
+}

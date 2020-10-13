@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Global CSS files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/plugins/bootstrap-multiselect.css">
+    <!--media query related css-->
+    <link rel="stylesheet" href="assets/css/device.css">
+
+    <title>Chalkboard - Saved Activities</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="edit_profile_page"> 
+                  
+                   <!--global header-->
+                   <div class="globalHeader">
+                      <!--top right side section-->
+                       <div class="profile_section">
+                        <div class="badgeIcon">
+                         <img src="assets/images/badge.png" class="img-fluid">
+                         </div>
+                         
+                          <div class="nameBlock mr-10">
+                               <p class="user_name">Jade Anderson</p>
+                               <p class="user_level">Learner</p>
+                          </div>
+                          
+                           <div class="profileIconBlock">
+                               <a href="#">
+                                   <img src="assets/images/profile_pic.png" 
+                                   class="img-fluid profileIcon">
+                               </a>
+                           </div>
+                           
+                           <div class="logout mr-10">
+                               <a href="#" class="no-anchor">
+                               Logout
+                               <img src="assets/images/logout.png" 
+                               class="img-fluid">
+                               </a> 
+                          </div> 
+                       </div>
+                       <!--top right side section ends here-->
+                       
+                       <!--logo block-->
+                       <div class="text-center cb_logoBlock">
+                           <img src="assets/images/cblogo.png" class="img-fluid chalkboard_logo">
+                           <h4 class="chalkboard_label">Chalkboard</h4>
+                       </div>
+                       <!--logo block ends here-->
+                   </div>
+                   <!--global header ends here-->
+                    
+                   
+                    <div class="edit_profile_wrapper mt-30">
+                        <div class="row no-gutters">
+                            <div class="col-3">
+                                <div class="left_side_wrapper pt-30">
+                                    <ul class="list-unstyled">
+                                        <li class="active">
+                                            <a href="saved-activities.html" class="no-anchor">
+                                               SAVED ACTIVITIES
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="submitted-activities.html" class="no-anchor">
+                                                SUBMITTED ACTIVITIES
+                                            </a>
+                                        </li>
+ 
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="right_side_wrapper">
+                                   <!--header-->
+                                    <div class="row align-items-center justify-content-center no-gutters">
+                                        <div class="col header_line"></div>
+                                        <div class="col-auto">
+                                        <h4 class="d-inline-block">Saved Activities</h4>
+                                        </div>
+                                        <div class="col header_line"></div>
+                                    </div>
+                                    <!--header ends here-->
+                                  
+                                   <!--filter-->
+                                   <div class="row"> 
+                                    <div class="col-auto ml-auto">
+                                       <div class="filterWrapper">
+                                        <div class="customSelectFilter">
+                                            <select id="selectActivity" multiple="multiple">
+                                                <option value="STORIES">STORIES</option>
+                                                <option value="PICTURES">PICTURES</option>
+                                                <option value="ANIMATION">ANIMATION</option>
+                                                <option value="GAMES">GAMES</option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div> 
+                                   </div> 
+                                   <!--filter ends here-->
+                                  
+                                    <!--saved activities inner-->
+                                    <div class="saved_activities_inner scroll_bar">
+                                       <!--1st saved activity block-->
+                                        <div class="saved_activities_block">
+                                            <div class="row">
+                                                <div class="col-12 col-md-auto">
+                                                    <div class="image_block">
+                                                        <img src="assets/images/cards1.jpg" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-lg-6">
+                                                   <div class="excerpt_content">
+                                                       <p>ACTIVITY TITLE</p>
+                                                       <p>Write about your recent trip with your friends or family. Describe the places you visited, interesting facts about the place etc. </p>
+                                                   </div>
+                                                </div>
+                                                <div class="col-auto col-lg-3 ml-md-auto pa-15 pr-30">
+                                                    <div class="d-flex flex-column align-items-start" style="height: 125px;"> 
+                                                          <div class="mb-auto w-100">
+                                                           <button type="button" class="btn btn-dark cb_btn">
+                                                            Continue
+                                                        </button> 
+                                                         </div>
+                                                    <div class="w-100"> 
+                                                        <button type="button" class="btn btn-dark cb_btn cancelBtn">Delete</button>
+                                                        </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--1st saved activity block ends here-->
+                                        
+                                       <!--2nd saved activity block-->
+                                        <div class="saved_activities_block">
+                                            <div class="row">
+                                                <div class="col-12 col-md-auto">
+                                                    <div class="image_block">
+                                                        <img src="assets/images/cards1.jpg" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-lg-6">
+                                                   <div class="excerpt_content">
+                                                       <p>ACTIVITY TITLE</p>
+                                                       <p>Write about your recent trip with your friends or family. Describe the places you visited, interesting facts about the place etc. </p>
+                                                   </div>
+                                                </div>
+                                                <div class="col-auto col-lg-3 ml-md-auto pa-15 pr-30">
+                                                    <div class="d-flex flex-column align-items-start" style="height: 125px;"> 
+                                                          <div class="mb-auto w-100">
+                                                           <button type="button" class="btn btn-dark cb_btn">
+                                                            Continue
+                                                        </button> 
+                                                         </div>
+                                                    <div class="w-100"> 
+                                                        <button type="button" class="btn btn-dark cb_btn cancelBtn">Delete</button>
+                                                        </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--2nd saved activity block ends here-->
+                                       
+                                        
+                                       <!--3rd saved activity block-->
+                                        <div class="saved_activities_block">
+                                            <div class="row">
+                                                <div class="col-12 col-md-auto">
+                                                    <div class="image_block">
+                                                        <img src="assets/images/cards1.jpg" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-lg-6">
+                                                   <div class="excerpt_content">
+                                                       <p>ACTIVITY TITLE</p>
+                                                       <p>Write about your recent trip with your friends or family. Describe the places you visited, interesting facts about the place etc. </p>
+                                                   </div>
+                                                </div>
+                                                <div class="col-auto col-lg-3 ml-md-auto pa-15 pr-30">
+                                                    <div class="d-flex flex-column align-items-start" style="height: 125px;"> 
+                                                          <div class="mb-auto w-100">
+                                                           <button type="button" class="btn btn-dark cb_btn">
+                                                            Continue
+                                                        </button> 
+                                                         </div>
+                                                    <div class="w-100"> 
+                                                        <button type="button" class="btn btn-dark cb_btn cancelBtn">Delete</button>
+                                                        </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--3rd saved activity block ends here-->
+                                                                                 
+                                    </div>
+                                    <!--saved activities inner ends here-->
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+ 
+    <!--multiselect plugin-->
+    <script src="assets/plugins/bootstrap-multiselect.js"></script>
+ 
+    <!-- multiselect plugin script for select dropdown -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#selectActivity').multiselect({
+                includeSelectAllOption: true,
+                selectAllText: 'All',
+                nonSelectedText: 'All'
+            });
+        });
+    </script>
+    
+    
+</body>
+
+</html>

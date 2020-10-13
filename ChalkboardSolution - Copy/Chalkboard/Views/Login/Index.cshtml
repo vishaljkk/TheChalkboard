@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Global CSS files -->
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <!--media query related css-->
+    <link rel="stylesheet" href="~/Assets/css/device.css">
+    <link rel="stylesheet" href="~/Assets/css/Custom/custom.css">
+    <link rel="stylesheet" href="~/Assets/css/Custom/toastr.css">
+    <title>Chalkboard - Login</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="login_page">
+                    <img src="~/Assets/images/chalkboard_logo.png" class="img-fluid chalkboard_logo">
+                    <div class="login_form_wrapper mt-20">
+                        <div class="header_block">
+                            <div class="d-flex justify-content-end mb-10 mt-10">
+                                <a href="register.html" class="no-anchor">
+                                    <button type="button" class="btn btn-dark">
+                                        REGISTER dry run
+                                    </button>
+                                </a>
+                            </div>
+                            <img src="~/Assets/images/login_header.png" class="img-fluid header_img">
+                        </div>
+                        <div class="login_form_block">
+                            <h4 class="mb-25">Log In</h4>
+                            
+                            @using (Html.BeginForm("SetLogin", "Login", new { }, FormMethod.Post, new { id = "FormLogin", autocomplete = "off" }))
+                            {   
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group mb-20">
+                                    <input type="email" class="form-control custom_form_control" id="emailID" placeholder="LOGIN ID" name="emailID">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control custom_form_control" id="password" placeholder="PASSWORD" name="password">
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-20">
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input " id="remember_me" name="rememberMe">
+                                            <label class="custom-control-label no-outline link_text cursor-pointer" for="remember_me">Remember</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <a href="#" class="link_text no-anchor">Forgot Password?</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <button type="submit" class="btn btn-dark" id="btnLogIn">Log In</button>
+                                    @*<button type="submit" class="btn btn-dark">Student Login</button>*@
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/Assets/js/jquery-3.1.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="~/Assets/js/script.js"></script>
+    <script src="~/Assets/js/Custom/login.js"></script>
+    <script src="~/Assets/js/Custom/common.js"></script>
+    <script type="text/javascript" src="~/Assets/js/Custom/toastr.min.js"></script>
+    <script src="~/Assets/js/Custom/toastrsample.js"></script>
+</body>
+
+</html>

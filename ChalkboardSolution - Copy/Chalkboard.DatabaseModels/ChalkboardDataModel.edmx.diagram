@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9743c830eac46f097f465cebc9892cd" Name="Diagram1">
+        <EntityTypeShape EntityType="ChalkboardModel.Activity" Width="1.5" PointX="8.25" PointY="9.625" />
+        <EntityTypeShape EntityType="ChalkboardModel.ActivityEntry" Width="1.5" PointX="10.5" PointY="9.625" />
+        <EntityTypeShape EntityType="ChalkboardModel.ActivityEntryComment" Width="1.5" PointX="15.75" PointY="6" />
+        <EntityTypeShape EntityType="ChalkboardModel.ActivityEntryFlag" Width="1.5" PointX="12.75" PointY="9.625" />
+        <EntityTypeShape EntityType="ChalkboardModel.ActivityEntryReaction" Width="1.5" PointX="15.75" PointY="9.875" />
+        <EntityTypeShape EntityType="ChalkboardModel.ActivityType" Width="1.5" PointX="6" PointY="14.25" />
+        <EntityTypeShape EntityType="ChalkboardModel.Category" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="ChalkboardModel.FlagReason" Width="1.5" PointX="10.5" PointY="6.25" />
+        <EntityTypeShape EntityType="ChalkboardModel.GroupCategory" Width="1.5" PointX="5.25" PointY="6" />
+        <EntityTypeShape EntityType="ChalkboardModel.GroupMember" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="ChalkboardModel.GroupRight" Width="1.5" PointX="0.75" PointY="6.375" />
+        <EntityTypeShape EntityType="ChalkboardModel.GroupRole" Width="1.5" PointX="3" PointY="15" />
+        <EntityTypeShape EntityType="ChalkboardModel.Group" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="ChalkboardModel.GroupType" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="ChalkboardModel.ProfileRight" Width="1.5" PointX="9" PointY="22.375" />
+        <EntityTypeShape EntityType="ChalkboardModel.Profile" Width="1.5" PointX="8.25" PointY="18" />
+        <EntityTypeShape EntityType="ChalkboardModel.Reaction" Width="1.5" PointX="13.5" PointY="6.25" />
+        <EntityTypeShape EntityType="ChalkboardModel.User" Width="1.5" PointX="6" PointY="17.625" />
+        <EntityTypeShape EntityType="ChalkboardModel.UserOTP" Width="1.5" PointX="13.5" PointY="20.125" />
+        <EntityTypeShape EntityType="ChalkboardModel.UserPreference" Width="1.5" PointX="11.25" PointY="14.75" />
+        <EntityTypeShape EntityType="ChalkboardModel.UserProfile" Width="1.5" PointX="11.25" PointY="18.75" />
+        <AssociationConnector Association="ChalkboardModel.FK__Activitie__Activ__3A179ED3" />
+        <AssociationConnector Association="ChalkboardModel.FK__Activitie__Group__3CF40B7E" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__Activ__3B0BC30C" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__Activ__43A1090D" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__Activ__4589517F" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__Activ__4865BE2A" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__UserI__3BFFE745" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__UserI__44952D46" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__FlagR__4A4E069C" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__UserI__4959E263" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__React__477199F1" />
+        <AssociationConnector Association="ChalkboardModel.FK__ActivityE__UserI__467D75B8" />
+        <AssociationConnector Association="ChalkboardModel.FK__GroupCate__Categ__3FD07829" />
+        <AssociationConnector Association="ChalkboardModel.FK__UserPrefe__Categ__41B8C09B" />
+        <AssociationConnector Association="ChalkboardModel.FK__GroupCate__Group__40C49C62" />
+        <AssociationConnector Association="ChalkboardModel.FK__GroupMemb__Group__36470DEF" />
+        <AssociationConnector Association="ChalkboardModel.FK__GroupMemb__Group__52E34C9D" />
+        <AssociationConnector Association="ChalkboardModel.FK__GroupMemb__UserI__373B3228" />
+        <AssociationConnector Association="ChalkboardModel.FK__Groups__GroupRig__39237A9A" />
+        <AssociationConnector Association="ChalkboardModel.FK__Groups__GroupTyp__3552E9B6" />
+        <AssociationConnector Association="ChalkboardModel.FK__Groups__ParentGr__3DE82FB7" />
+        <AssociationConnector Association="ChalkboardModel.FK__UserProfi__Profi__382F5661" />
+        <AssociationConnector Association="ChalkboardModel.FK__Profiles__UserId__4B422AD5" />
+        <AssociationConnector Association="ChalkboardModel.FK__UserPrefe__UserI__42ACE4D4" />
+        <AssociationConnector Association="ChalkboardModel.FK__UserProfi__UserI__345EC57D" />
+        <AssociationConnector Association="ChalkboardModel.FK__UserOTP__UserPro__3EDC53F0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

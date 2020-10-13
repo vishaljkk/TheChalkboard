@@ -1,0 +1,1889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ChalkboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="int" Nullable="false" />
+          <Property Name="ActivityName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ActivityDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="ActivityStartDate" Type="datetime" />
+          <Property Name="ActivityEndDate" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="ActivityImages" Type="varchar" MaxLength="100" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityEntries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivitiesId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Entry" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityEntryComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityEntriesId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="varchar(max)" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ActivityEntryFlag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityEntriesId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="FlagReasonId" Type="int" Nullable="false" />
+          <Property Name="FlagReasonComment" Type="varchar(max)" Nullable="false" />
+          <Property Name="AdminComment" Type="varchar(max)" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ActivityEntryReaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityEntriesId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ReactionId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryDescription" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FlagReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reason" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GroupCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GroupMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="GroupRoleId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GroupRights">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GroupRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="RoleDesc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentGroupId" Type="int" />
+          <Property Name="GroupName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="GroupDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="GroupTypeId" Type="int" />
+          <Property Name="GroupRightsId" Type="int" />
+          <Property Name="GroupCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Path" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GroupType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeDescription" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProfileRights">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ProfileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Reaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReactionType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserOTP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileId" Type="int" Nullable="false" />
+          <Property Name="OTP" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserPreferences">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ProfileRightsId" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="250" />
+          <Property Name="LastName" Type="varchar" MaxLength="250" />
+          <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="StreetName1" Type="varchar" MaxLength="250" />
+          <Property Name="StreetName2" Type="varchar" MaxLength="250" />
+          <Property Name="AptNo" Type="varchar" MaxLength="10" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="Country" Type="varchar" MaxLength="20" />
+          <Property Name="Zip" Type="varchar" MaxLength="6" />
+          <Property Name="ProfilePicture" Type="varbinary(max)" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Activitie__Activ__3A179ED3">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1" />
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activitie__Group__3CF40B7E">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__3B0BC30C">
+          <End Role="Activities" Type="Self.Activities" Multiplicity="1" />
+          <End Role="ActivityEntries" Type="Self.ActivityEntries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntries">
+              <PropertyRef Name="ActivitiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__43A1090D">
+          <End Role="ActivityEntries" Type="Self.ActivityEntries" Multiplicity="1" />
+          <End Role="ActivityEntryComment" Type="Self.ActivityEntryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityEntries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryComment">
+              <PropertyRef Name="ActivityEntriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__4589517F">
+          <End Role="ActivityEntries" Type="Self.ActivityEntries" Multiplicity="1" />
+          <End Role="ActivityEntryReaction" Type="Self.ActivityEntryReaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityEntries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryReaction">
+              <PropertyRef Name="ActivityEntriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__4865BE2A">
+          <End Role="ActivityEntries" Type="Self.ActivityEntries" Multiplicity="1" />
+          <End Role="ActivityEntryFlag" Type="Self.ActivityEntryFlag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityEntries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryFlag">
+              <PropertyRef Name="ActivityEntriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__FlagR__4A4E069C">
+          <End Role="FlagReason" Type="Self.FlagReason" Multiplicity="1" />
+          <End Role="ActivityEntryFlag" Type="Self.ActivityEntryFlag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlagReason">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryFlag">
+              <PropertyRef Name="FlagReasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__React__477199F1">
+          <End Role="Reaction" Type="Self.Reaction" Multiplicity="1" />
+          <End Role="ActivityEntryReaction" Type="Self.ActivityEntryReaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryReaction">
+              <PropertyRef Name="ReactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__3BFFE745">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="ActivityEntries" Type="Self.ActivityEntries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntries">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__44952D46">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ActivityEntryComment" Type="Self.ActivityEntryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryComment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__467D75B8">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ActivityEntryReaction" Type="Self.ActivityEntryReaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryReaction">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__4959E263">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ActivityEntryFlag" Type="Self.ActivityEntryFlag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryFlag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupCate__Categ__3FD07829">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="GroupCategory" Type="Self.GroupCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupCate__Group__40C49C62">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupCategory" Type="Self.GroupCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupCategory">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupMemb__Group__36470DEF">
+          <End Role="GroupRoles" Type="Self.GroupRoles" Multiplicity="1" />
+          <End Role="GroupMember" Type="Self.GroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupMember">
+              <PropertyRef Name="GroupRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupMemb__Group__52E34C9D">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupMember" Type="Self.GroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupMember">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupMemb__UserI__373B3228">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="GroupMember" Type="Self.GroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupMember">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Groups__GroupRig__39237A9A">
+          <End Role="GroupRights" Type="Self.GroupRights" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupRights">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="GroupRightsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Groups__GroupTyp__3552E9B6">
+          <End Role="GroupType" Type="Self.GroupType" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="GroupTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Groups__ParentGr__3DE82FB7">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Groups1" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups1">
+              <PropertyRef Name="ParentGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profiles__UserId__4B422AD5">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserOTP__UserPro__3EDC53F0">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="UserOTP" Type="Self.UserOTP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserOTP">
+              <PropertyRef Name="UserProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__Categ__41B8C09B">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="UserPreferences" Type="Self.UserPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPreferences">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__UserI__42ACE4D4">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserPreferences" Type="Self.UserPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPreferences">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProfi__Profi__382F5661">
+          <End Role="ProfileRights" Type="Self.ProfileRights" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileRights">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="ProfileRightsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProfi__UserI__345EC57D">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChalkboardModelStoreContainer">
+          <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityEntries" EntityType="Self.ActivityEntries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityEntryComment" EntityType="Self.ActivityEntryComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityEntryFlag" EntityType="Self.ActivityEntryFlag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityEntryReaction" EntityType="Self.ActivityEntryReaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityType" EntityType="Self.ActivityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlagReason" EntityType="Self.FlagReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupCategory" EntityType="Self.GroupCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupMember" EntityType="Self.GroupMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupRights" EntityType="Self.GroupRights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupRoles" EntityType="Self.GroupRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupType" EntityType="Self.GroupType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileRights" EntityType="Self.ProfileRights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reaction" EntityType="Self.Reaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserOTP" EntityType="Self.UserOTP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPreferences" EntityType="Self.UserPreferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Activitie__Activ__3A179ED3" Association="Self.FK__Activitie__Activ__3A179ED3">
+            <End Role="ActivityType" EntitySet="ActivityType" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activitie__Group__3CF40B7E" Association="Self.FK__Activitie__Group__3CF40B7E">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__3B0BC30C" Association="Self.FK__ActivityE__Activ__3B0BC30C">
+            <End Role="Activities" EntitySet="Activities" />
+            <End Role="ActivityEntries" EntitySet="ActivityEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__43A1090D" Association="Self.FK__ActivityE__Activ__43A1090D">
+            <End Role="ActivityEntries" EntitySet="ActivityEntries" />
+            <End Role="ActivityEntryComment" EntitySet="ActivityEntryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__4589517F" Association="Self.FK__ActivityE__Activ__4589517F">
+            <End Role="ActivityEntries" EntitySet="ActivityEntries" />
+            <End Role="ActivityEntryReaction" EntitySet="ActivityEntryReaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__4865BE2A" Association="Self.FK__ActivityE__Activ__4865BE2A">
+            <End Role="ActivityEntries" EntitySet="ActivityEntries" />
+            <End Role="ActivityEntryFlag" EntitySet="ActivityEntryFlag" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__FlagR__4A4E069C" Association="Self.FK__ActivityE__FlagR__4A4E069C">
+            <End Role="FlagReason" EntitySet="FlagReason" />
+            <End Role="ActivityEntryFlag" EntitySet="ActivityEntryFlag" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__React__477199F1" Association="Self.FK__ActivityE__React__477199F1">
+            <End Role="Reaction" EntitySet="Reaction" />
+            <End Role="ActivityEntryReaction" EntitySet="ActivityEntryReaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__3BFFE745" Association="Self.FK__ActivityE__UserI__3BFFE745">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="ActivityEntries" EntitySet="ActivityEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__44952D46" Association="Self.FK__ActivityE__UserI__44952D46">
+            <End Role="User" EntitySet="User" />
+            <End Role="ActivityEntryComment" EntitySet="ActivityEntryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__467D75B8" Association="Self.FK__ActivityE__UserI__467D75B8">
+            <End Role="User" EntitySet="User" />
+            <End Role="ActivityEntryReaction" EntitySet="ActivityEntryReaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__4959E263" Association="Self.FK__ActivityE__UserI__4959E263">
+            <End Role="User" EntitySet="User" />
+            <End Role="ActivityEntryFlag" EntitySet="ActivityEntryFlag" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupCate__Categ__3FD07829" Association="Self.FK__GroupCate__Categ__3FD07829">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="GroupCategory" EntitySet="GroupCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupCate__Group__40C49C62" Association="Self.FK__GroupCate__Group__40C49C62">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupCategory" EntitySet="GroupCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupMemb__Group__36470DEF" Association="Self.FK__GroupMemb__Group__36470DEF">
+            <End Role="GroupRoles" EntitySet="GroupRoles" />
+            <End Role="GroupMember" EntitySet="GroupMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupMemb__Group__52E34C9D" Association="Self.FK__GroupMemb__Group__52E34C9D">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupMember" EntitySet="GroupMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupMemb__UserI__373B3228" Association="Self.FK__GroupMemb__UserI__373B3228">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="GroupMember" EntitySet="GroupMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Groups__GroupRig__39237A9A" Association="Self.FK__Groups__GroupRig__39237A9A">
+            <End Role="GroupRights" EntitySet="GroupRights" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Groups__GroupTyp__3552E9B6" Association="Self.FK__Groups__GroupTyp__3552E9B6">
+            <End Role="GroupType" EntitySet="GroupType" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Groups__ParentGr__3DE82FB7" Association="Self.FK__Groups__ParentGr__3DE82FB7">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Groups1" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profiles__UserId__4B422AD5" Association="Self.FK__Profiles__UserId__4B422AD5">
+            <End Role="User" EntitySet="User" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserOTP__UserPro__3EDC53F0" Association="Self.FK__UserOTP__UserPro__3EDC53F0">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserOTP" EntitySet="UserOTP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__Categ__41B8C09B" Association="Self.FK__UserPrefe__Categ__41B8C09B">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="UserPreferences" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__UserI__42ACE4D4" Association="Self.FK__UserPrefe__UserI__42ACE4D4">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserPreferences" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProfi__Profi__382F5661" Association="Self.FK__UserProfi__Profi__382F5661">
+            <End Role="ProfileRights" EntitySet="ProfileRights" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProfi__UserI__345EC57D" Association="Self.FK__UserProfi__UserI__345EC57D">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChalkboardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ChalkboardEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activities" EntityType="ChalkboardModel.Activity" />
+          <EntitySet Name="ActivityEntries" EntityType="ChalkboardModel.ActivityEntry" />
+          <EntitySet Name="ActivityEntryComments" EntityType="ChalkboardModel.ActivityEntryComment" />
+          <EntitySet Name="ActivityEntryFlags" EntityType="ChalkboardModel.ActivityEntryFlag" />
+          <EntitySet Name="ActivityEntryReactions" EntityType="ChalkboardModel.ActivityEntryReaction" />
+          <EntitySet Name="ActivityTypes" EntityType="ChalkboardModel.ActivityType" />
+          <EntitySet Name="Categories" EntityType="ChalkboardModel.Category" />
+          <EntitySet Name="FlagReasons" EntityType="ChalkboardModel.FlagReason" />
+          <EntitySet Name="GroupCategories" EntityType="ChalkboardModel.GroupCategory" />
+          <EntitySet Name="GroupMembers" EntityType="ChalkboardModel.GroupMember" />
+          <EntitySet Name="GroupRights" EntityType="ChalkboardModel.GroupRight" />
+          <EntitySet Name="GroupRoles" EntityType="ChalkboardModel.GroupRole" />
+          <EntitySet Name="Groups" EntityType="ChalkboardModel.Group" />
+          <EntitySet Name="GroupTypes" EntityType="ChalkboardModel.GroupType" />
+          <EntitySet Name="ProfileRights" EntityType="ChalkboardModel.ProfileRight" />
+          <EntitySet Name="Profiles" EntityType="ChalkboardModel.Profile" />
+          <EntitySet Name="Reactions" EntityType="ChalkboardModel.Reaction" />
+          <EntitySet Name="Users" EntityType="ChalkboardModel.User" />
+          <EntitySet Name="UserOTPs" EntityType="ChalkboardModel.UserOTP" />
+          <EntitySet Name="UserPreferences" EntityType="ChalkboardModel.UserPreference" />
+          <EntitySet Name="UserProfiles" EntityType="ChalkboardModel.UserProfile" />
+          <AssociationSet Name="FK__Activitie__Activ__3A179ED3" Association="ChalkboardModel.FK__Activitie__Activ__3A179ED3">
+            <End Role="ActivityType" EntitySet="ActivityTypes" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activitie__Group__3CF40B7E" Association="ChalkboardModel.FK__Activitie__Group__3CF40B7E">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__3B0BC30C" Association="ChalkboardModel.FK__ActivityE__Activ__3B0BC30C">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="ActivityEntry" EntitySet="ActivityEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__43A1090D" Association="ChalkboardModel.FK__ActivityE__Activ__43A1090D">
+            <End Role="ActivityEntry" EntitySet="ActivityEntries" />
+            <End Role="ActivityEntryComment" EntitySet="ActivityEntryComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__4589517F" Association="ChalkboardModel.FK__ActivityE__Activ__4589517F">
+            <End Role="ActivityEntry" EntitySet="ActivityEntries" />
+            <End Role="ActivityEntryReaction" EntitySet="ActivityEntryReactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__Activ__4865BE2A" Association="ChalkboardModel.FK__ActivityE__Activ__4865BE2A">
+            <End Role="ActivityEntry" EntitySet="ActivityEntries" />
+            <End Role="ActivityEntryFlag" EntitySet="ActivityEntryFlags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__3BFFE745" Association="ChalkboardModel.FK__ActivityE__UserI__3BFFE745">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="ActivityEntry" EntitySet="ActivityEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__44952D46" Association="ChalkboardModel.FK__ActivityE__UserI__44952D46">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ActivityEntryComment" EntitySet="ActivityEntryComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__FlagR__4A4E069C" Association="ChalkboardModel.FK__ActivityE__FlagR__4A4E069C">
+            <End Role="FlagReason" EntitySet="FlagReasons" />
+            <End Role="ActivityEntryFlag" EntitySet="ActivityEntryFlags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__4959E263" Association="ChalkboardModel.FK__ActivityE__UserI__4959E263">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ActivityEntryFlag" EntitySet="ActivityEntryFlags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__React__477199F1" Association="ChalkboardModel.FK__ActivityE__React__477199F1">
+            <End Role="Reaction" EntitySet="Reactions" />
+            <End Role="ActivityEntryReaction" EntitySet="ActivityEntryReactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ActivityE__UserI__467D75B8" Association="ChalkboardModel.FK__ActivityE__UserI__467D75B8">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ActivityEntryReaction" EntitySet="ActivityEntryReactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupCate__Categ__3FD07829" Association="ChalkboardModel.FK__GroupCate__Categ__3FD07829">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="GroupCategory" EntitySet="GroupCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__Categ__41B8C09B" Association="ChalkboardModel.FK__UserPrefe__Categ__41B8C09B">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="UserPreference" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupCate__Group__40C49C62" Association="ChalkboardModel.FK__GroupCate__Group__40C49C62">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="GroupCategory" EntitySet="GroupCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupMemb__Group__36470DEF" Association="ChalkboardModel.FK__GroupMemb__Group__36470DEF">
+            <End Role="GroupRole" EntitySet="GroupRoles" />
+            <End Role="GroupMember" EntitySet="GroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupMemb__Group__52E34C9D" Association="ChalkboardModel.FK__GroupMemb__Group__52E34C9D">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="GroupMember" EntitySet="GroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupMemb__UserI__373B3228" Association="ChalkboardModel.FK__GroupMemb__UserI__373B3228">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="GroupMember" EntitySet="GroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Groups__GroupRig__39237A9A" Association="ChalkboardModel.FK__Groups__GroupRig__39237A9A">
+            <End Role="GroupRight" EntitySet="GroupRights" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Groups__GroupTyp__3552E9B6" Association="ChalkboardModel.FK__Groups__GroupTyp__3552E9B6">
+            <End Role="GroupType" EntitySet="GroupTypes" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Groups__ParentGr__3DE82FB7" Association="ChalkboardModel.FK__Groups__ParentGr__3DE82FB7">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Group1" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProfi__Profi__382F5661" Association="ChalkboardModel.FK__UserProfi__Profi__382F5661">
+            <End Role="ProfileRight" EntitySet="ProfileRights" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profiles__UserId__4B422AD5" Association="ChalkboardModel.FK__Profiles__UserId__4B422AD5">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__UserI__42ACE4D4" Association="ChalkboardModel.FK__UserPrefe__UserI__42ACE4D4">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPreference" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProfi__UserI__345EC57D" Association="ChalkboardModel.FK__UserProfi__UserI__345EC57D">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserOTP__UserPro__3EDC53F0" Association="ChalkboardModel.FK__UserOTP__UserPro__3EDC53F0">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="UserOTP" EntitySet="UserOTPs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ActivityEndDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityType" Relationship="ChalkboardModel.FK__Activitie__Activ__3A179ED3" FromRole="Activity" ToRole="ActivityType" />
+          <NavigationProperty Name="Group" Relationship="ChalkboardModel.FK__Activitie__Group__3CF40B7E" FromRole="Activity" ToRole="Group" />
+          <NavigationProperty Name="ActivityEntries" Relationship="ChalkboardModel.FK__ActivityE__Activ__3B0BC30C" FromRole="Activity" ToRole="ActivityEntry" />
+          <Property Name="ActivityImages" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivitiesId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Entry" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activity" Relationship="ChalkboardModel.FK__ActivityE__Activ__3B0BC30C" FromRole="ActivityEntry" ToRole="Activity" />
+          <NavigationProperty Name="ActivityEntryComments" Relationship="ChalkboardModel.FK__ActivityE__Activ__43A1090D" FromRole="ActivityEntry" ToRole="ActivityEntryComment" />
+          <NavigationProperty Name="ActivityEntryReactions" Relationship="ChalkboardModel.FK__ActivityE__Activ__4589517F" FromRole="ActivityEntry" ToRole="ActivityEntryReaction" />
+          <NavigationProperty Name="ActivityEntryFlags" Relationship="ChalkboardModel.FK__ActivityE__Activ__4865BE2A" FromRole="ActivityEntry" ToRole="ActivityEntryFlag" />
+          <NavigationProperty Name="Profile" Relationship="ChalkboardModel.FK__ActivityE__UserI__3BFFE745" FromRole="ActivityEntry" ToRole="Profile" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityEntryComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityEntriesId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityEntry" Relationship="ChalkboardModel.FK__ActivityE__Activ__43A1090D" FromRole="ActivityEntryComment" ToRole="ActivityEntry" />
+          <NavigationProperty Name="User" Relationship="ChalkboardModel.FK__ActivityE__UserI__44952D46" FromRole="ActivityEntryComment" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ActivityEntryFlag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityEntriesId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="FlagReasonId" Type="Int32" Nullable="false" />
+          <Property Name="FlagReasonComment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdminComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityEntry" Relationship="ChalkboardModel.FK__ActivityE__Activ__4865BE2A" FromRole="ActivityEntryFlag" ToRole="ActivityEntry" />
+          <NavigationProperty Name="FlagReason" Relationship="ChalkboardModel.FK__ActivityE__FlagR__4A4E069C" FromRole="ActivityEntryFlag" ToRole="FlagReason" />
+          <NavigationProperty Name="User" Relationship="ChalkboardModel.FK__ActivityE__UserI__4959E263" FromRole="ActivityEntryFlag" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ActivityEntryReaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityEntriesId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ReactionId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityEntry" Relationship="ChalkboardModel.FK__ActivityE__Activ__4589517F" FromRole="ActivityEntryReaction" ToRole="ActivityEntry" />
+          <NavigationProperty Name="Reaction" Relationship="ChalkboardModel.FK__ActivityE__React__477199F1" FromRole="ActivityEntryReaction" ToRole="Reaction" />
+          <NavigationProperty Name="User" Relationship="ChalkboardModel.FK__ActivityE__UserI__467D75B8" FromRole="ActivityEntryReaction" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activities" Relationship="ChalkboardModel.FK__Activitie__Activ__3A179ED3" FromRole="ActivityType" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryDescription" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="GroupCategories" Relationship="ChalkboardModel.FK__GroupCate__Categ__3FD07829" FromRole="Category" ToRole="GroupCategory" />
+          <NavigationProperty Name="UserPreferences" Relationship="ChalkboardModel.FK__UserPrefe__Categ__41B8C09B" FromRole="Category" ToRole="UserPreference" />
+        </EntityType>
+        <EntityType Name="FlagReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reason" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityEntryFlags" Relationship="ChalkboardModel.FK__ActivityE__FlagR__4A4E069C" FromRole="FlagReason" ToRole="ActivityEntryFlag" />
+        </EntityType>
+        <EntityType Name="GroupCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Category" Relationship="ChalkboardModel.FK__GroupCate__Categ__3FD07829" FromRole="GroupCategory" ToRole="Category" />
+          <NavigationProperty Name="Group" Relationship="ChalkboardModel.FK__GroupCate__Group__40C49C62" FromRole="GroupCategory" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="GroupMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="GroupRoleId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="GroupRole" Relationship="ChalkboardModel.FK__GroupMemb__Group__36470DEF" FromRole="GroupMember" ToRole="GroupRole" />
+          <NavigationProperty Name="Group" Relationship="ChalkboardModel.FK__GroupMemb__Group__52E34C9D" FromRole="GroupMember" ToRole="Group" />
+          <NavigationProperty Name="Profile" Relationship="ChalkboardModel.FK__GroupMemb__UserI__373B3228" FromRole="GroupMember" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="GroupRight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Groups" Relationship="ChalkboardModel.FK__Groups__GroupRig__39237A9A" FromRole="GroupRight" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="GroupRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="RoleDesc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="GroupMembers" Relationship="ChalkboardModel.FK__GroupMemb__Group__36470DEF" FromRole="GroupRole" ToRole="GroupMember" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentGroupId" Type="Int32" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="GroupDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GroupTypeId" Type="Int32" />
+          <Property Name="GroupRightsId" Type="Int32" />
+          <Property Name="GroupCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activities" Relationship="ChalkboardModel.FK__Activitie__Group__3CF40B7E" FromRole="Group" ToRole="Activity" />
+          <NavigationProperty Name="GroupCategories" Relationship="ChalkboardModel.FK__GroupCate__Group__40C49C62" FromRole="Group" ToRole="GroupCategory" />
+          <NavigationProperty Name="GroupMembers" Relationship="ChalkboardModel.FK__GroupMemb__Group__52E34C9D" FromRole="Group" ToRole="GroupMember" />
+          <NavigationProperty Name="GroupRight" Relationship="ChalkboardModel.FK__Groups__GroupRig__39237A9A" FromRole="Group" ToRole="GroupRight" />
+          <NavigationProperty Name="GroupType" Relationship="ChalkboardModel.FK__Groups__GroupTyp__3552E9B6" FromRole="Group" ToRole="GroupType" />
+          <NavigationProperty Name="Groups1" Relationship="ChalkboardModel.FK__Groups__ParentGr__3DE82FB7" FromRole="Group" ToRole="Group1" />
+          <NavigationProperty Name="Group1" Relationship="ChalkboardModel.FK__Groups__ParentGr__3DE82FB7" FromRole="Group1" ToRole="Group" />
+          <Property Name="Path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GroupType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeDescription" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Groups" Relationship="ChalkboardModel.FK__Groups__GroupTyp__3552E9B6" FromRole="GroupType" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="ProfileRight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserProfiles" Relationship="ChalkboardModel.FK__UserProfi__Profi__382F5661" FromRole="ProfileRight" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ProfileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityEntries" Relationship="ChalkboardModel.FK__ActivityE__UserI__3BFFE745" FromRole="Profile" ToRole="ActivityEntry" />
+          <NavigationProperty Name="GroupMembers" Relationship="ChalkboardModel.FK__GroupMemb__UserI__373B3228" FromRole="Profile" ToRole="GroupMember" />
+          <NavigationProperty Name="User" Relationship="ChalkboardModel.FK__Profiles__UserId__4B422AD5" FromRole="Profile" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Reaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReactionType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityEntryReactions" Relationship="ChalkboardModel.FK__ActivityE__React__477199F1" FromRole="Reaction" ToRole="ActivityEntryReaction" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityEntryComments" Relationship="ChalkboardModel.FK__ActivityE__UserI__44952D46" FromRole="User" ToRole="ActivityEntryComment" />
+          <NavigationProperty Name="ActivityEntryFlags" Relationship="ChalkboardModel.FK__ActivityE__UserI__4959E263" FromRole="User" ToRole="ActivityEntryFlag" />
+          <NavigationProperty Name="ActivityEntryReactions" Relationship="ChalkboardModel.FK__ActivityE__UserI__467D75B8" FromRole="User" ToRole="ActivityEntryReaction" />
+          <NavigationProperty Name="Profiles" Relationship="ChalkboardModel.FK__Profiles__UserId__4B422AD5" FromRole="User" ToRole="Profile" />
+          <NavigationProperty Name="UserPreferences" Relationship="ChalkboardModel.FK__UserPrefe__UserI__42ACE4D4" FromRole="User" ToRole="UserPreference" />
+          <NavigationProperty Name="UserProfiles" Relationship="ChalkboardModel.FK__UserProfi__UserI__345EC57D" FromRole="User" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserOTP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileId" Type="Int32" Nullable="false" />
+          <Property Name="OTP" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserProfile" Relationship="ChalkboardModel.FK__UserOTP__UserPro__3EDC53F0" FromRole="UserOTP" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserPreference">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Category" Relationship="ChalkboardModel.FK__UserPrefe__Categ__41B8C09B" FromRole="UserPreference" ToRole="Category" />
+          <NavigationProperty Name="User" Relationship="ChalkboardModel.FK__UserPrefe__UserI__42ACE4D4" FromRole="UserPreference" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ProfileRightsId" Type="Int32" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StreetName1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StreetName2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AptNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ProfileRight" Relationship="ChalkboardModel.FK__UserProfi__Profi__382F5661" FromRole="UserProfile" ToRole="ProfileRight" />
+          <NavigationProperty Name="User" Relationship="ChalkboardModel.FK__UserProfi__UserI__345EC57D" FromRole="UserProfile" ToRole="User" />
+          <NavigationProperty Name="UserOTPs" Relationship="ChalkboardModel.FK__UserOTP__UserPro__3EDC53F0" FromRole="UserProfile" ToRole="UserOTP" />
+        </EntityType>
+        <Association Name="FK__Activitie__Activ__3A179ED3">
+          <End Type="ChalkboardModel.ActivityType" Role="ActivityType" Multiplicity="1" />
+          <End Type="ChalkboardModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activitie__Group__3CF40B7E">
+          <End Type="ChalkboardModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="ChalkboardModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__3B0BC30C">
+          <End Type="ChalkboardModel.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntry" Role="ActivityEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntry">
+              <PropertyRef Name="ActivitiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__43A1090D">
+          <End Type="ChalkboardModel.ActivityEntry" Role="ActivityEntry" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryComment" Role="ActivityEntryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityEntry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryComment">
+              <PropertyRef Name="ActivityEntriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__4589517F">
+          <End Type="ChalkboardModel.ActivityEntry" Role="ActivityEntry" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryReaction" Role="ActivityEntryReaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityEntry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryReaction">
+              <PropertyRef Name="ActivityEntriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__Activ__4865BE2A">
+          <End Type="ChalkboardModel.ActivityEntry" Role="ActivityEntry" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryFlag" Role="ActivityEntryFlag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityEntry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryFlag">
+              <PropertyRef Name="ActivityEntriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__3BFFE745">
+          <End Type="ChalkboardModel.Profile" Role="Profile" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntry" Role="ActivityEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntry">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__44952D46">
+          <End Type="ChalkboardModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryComment" Role="ActivityEntryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryComment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__FlagR__4A4E069C">
+          <End Type="ChalkboardModel.FlagReason" Role="FlagReason" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryFlag" Role="ActivityEntryFlag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlagReason">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryFlag">
+              <PropertyRef Name="FlagReasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__4959E263">
+          <End Type="ChalkboardModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryFlag" Role="ActivityEntryFlag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryFlag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__React__477199F1">
+          <End Type="ChalkboardModel.Reaction" Role="Reaction" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryReaction" Role="ActivityEntryReaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryReaction">
+              <PropertyRef Name="ReactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ActivityE__UserI__467D75B8">
+          <End Type="ChalkboardModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChalkboardModel.ActivityEntryReaction" Role="ActivityEntryReaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityEntryReaction">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupCate__Categ__3FD07829">
+          <End Type="ChalkboardModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="ChalkboardModel.GroupCategory" Role="GroupCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__Categ__41B8C09B">
+          <End Type="ChalkboardModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="ChalkboardModel.UserPreference" Role="UserPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPreference">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupCate__Group__40C49C62">
+          <End Type="ChalkboardModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="ChalkboardModel.GroupCategory" Role="GroupCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupCategory">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupMemb__Group__36470DEF">
+          <End Type="ChalkboardModel.GroupRole" Role="GroupRole" Multiplicity="1" />
+          <End Type="ChalkboardModel.GroupMember" Role="GroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupMember">
+              <PropertyRef Name="GroupRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupMemb__Group__52E34C9D">
+          <End Type="ChalkboardModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="ChalkboardModel.GroupMember" Role="GroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupMember">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupMemb__UserI__373B3228">
+          <End Type="ChalkboardModel.Profile" Role="Profile" Multiplicity="1" />
+          <End Type="ChalkboardModel.GroupMember" Role="GroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupMember">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Groups__GroupRig__39237A9A">
+          <End Type="ChalkboardModel.GroupRight" Role="GroupRight" Multiplicity="0..1" />
+          <End Type="ChalkboardModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupRight">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="GroupRightsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Groups__GroupTyp__3552E9B6">
+          <End Type="ChalkboardModel.GroupType" Role="GroupType" Multiplicity="0..1" />
+          <End Type="ChalkboardModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="GroupTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Groups__ParentGr__3DE82FB7">
+          <End Type="ChalkboardModel.Group" Role="Group" Multiplicity="0..1" />
+          <End Type="ChalkboardModel.Group" Role="Group1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group1">
+              <PropertyRef Name="ParentGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProfi__Profi__382F5661">
+          <End Type="ChalkboardModel.ProfileRight" Role="ProfileRight" Multiplicity="0..1" />
+          <End Type="ChalkboardModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileRight">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="ProfileRightsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profiles__UserId__4B422AD5">
+          <End Type="ChalkboardModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChalkboardModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__UserI__42ACE4D4">
+          <End Type="ChalkboardModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChalkboardModel.UserPreference" Role="UserPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPreference">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProfi__UserI__345EC57D">
+          <End Type="ChalkboardModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChalkboardModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserOTP__UserPro__3EDC53F0">
+          <End Type="ChalkboardModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+          <End Type="ChalkboardModel.UserOTP" Role="UserOTP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserOTP">
+              <PropertyRef Name="UserProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ChalkboardModelStoreContainer" CdmEntityContainer="ChalkboardEntities">
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="ChalkboardModel.Activity">
+              <MappingFragment StoreEntitySet="Activities">
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="ActivityImages" ColumnName="ActivityImages" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ActivityEndDate" ColumnName="ActivityEndDate" />
+                <ScalarProperty Name="ActivityStartDate" ColumnName="ActivityStartDate" />
+                <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityEntries">
+            <EntityTypeMapping TypeName="ChalkboardModel.ActivityEntry">
+              <MappingFragment StoreEntitySet="ActivityEntries">
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivitiesId" ColumnName="ActivitiesId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityEntryComments">
+            <EntityTypeMapping TypeName="ChalkboardModel.ActivityEntryComment">
+              <MappingFragment StoreEntitySet="ActivityEntryComment">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivityEntriesId" ColumnName="ActivityEntriesId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityEntryFlags">
+            <EntityTypeMapping TypeName="ChalkboardModel.ActivityEntryFlag">
+              <MappingFragment StoreEntitySet="ActivityEntryFlag">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+                <ScalarProperty Name="FlagReasonComment" ColumnName="FlagReasonComment" />
+                <ScalarProperty Name="FlagReasonId" ColumnName="FlagReasonId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivityEntriesId" ColumnName="ActivityEntriesId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityEntryReactions">
+            <EntityTypeMapping TypeName="ChalkboardModel.ActivityEntryReaction">
+              <MappingFragment StoreEntitySet="ActivityEntryReaction">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReactionId" ColumnName="ReactionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivityEntriesId" ColumnName="ActivityEntriesId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityTypes">
+            <EntityTypeMapping TypeName="ChalkboardModel.ActivityType">
+              <MappingFragment StoreEntitySet="ActivityType">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ChalkboardModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlagReasons">
+            <EntityTypeMapping TypeName="ChalkboardModel.FlagReason">
+              <MappingFragment StoreEntitySet="FlagReason">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupCategories">
+            <EntityTypeMapping TypeName="ChalkboardModel.GroupCategory">
+              <MappingFragment StoreEntitySet="GroupCategory">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupMembers">
+            <EntityTypeMapping TypeName="ChalkboardModel.GroupMember">
+              <MappingFragment StoreEntitySet="GroupMember">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GroupRoleId" ColumnName="GroupRoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupRights">
+            <EntityTypeMapping TypeName="ChalkboardModel.GroupRight">
+              <MappingFragment StoreEntitySet="GroupRights">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupRoles">
+            <EntityTypeMapping TypeName="ChalkboardModel.GroupRole">
+              <MappingFragment StoreEntitySet="GroupRoles">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoleDesc" ColumnName="RoleDesc" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="ChalkboardModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="GroupRightsId" ColumnName="GroupRightsId" />
+                <ScalarProperty Name="GroupTypeId" ColumnName="GroupTypeId" />
+                <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="ParentGroupId" ColumnName="ParentGroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupTypes">
+            <EntityTypeMapping TypeName="ChalkboardModel.GroupType">
+              <MappingFragment StoreEntitySet="GroupType">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileRights">
+            <EntityTypeMapping TypeName="ChalkboardModel.ProfileRight">
+              <MappingFragment StoreEntitySet="ProfileRights">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="ChalkboardModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProfileName" ColumnName="ProfileName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reactions">
+            <EntityTypeMapping TypeName="ChalkboardModel.Reaction">
+              <MappingFragment StoreEntitySet="Reaction">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReactionType" ColumnName="ReactionType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ChalkboardModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserOTPs">
+            <EntityTypeMapping TypeName="ChalkboardModel.UserOTP">
+              <MappingFragment StoreEntitySet="UserOTP">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OTP" ColumnName="OTP" />
+                <ScalarProperty Name="UserProfileId" ColumnName="UserProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPreferences">
+            <EntityTypeMapping TypeName="ChalkboardModel.UserPreference">
+              <MappingFragment StoreEntitySet="UserPreferences">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="ChalkboardModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AptNo" ColumnName="AptNo" />
+                <ScalarProperty Name="StreetName2" ColumnName="StreetName2" />
+                <ScalarProperty Name="StreetName1" ColumnName="StreetName1" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ProfileRightsId" ColumnName="ProfileRightsId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

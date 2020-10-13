@@ -1,0 +1,94 @@
+﻿@using Chalkboard.ViewModel;
+@model Chalkboard.ViewModel.RegistrationModel
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Global CSS files -->
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <!--media query related css-->
+    <link rel="stylesheet" href="~/Assets/css/device.css">
+    <link rel="stylesheet" href="~/Assets/css/Custom/custom.css">
+
+
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/Custom/toastr.css">
+
+    <title>Chalkboard - Registration</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="login_page">
+                    <img src="~/Assets/images/chalkboard_logo.png" class="img-fluid chalkboard_logo">
+                    <div class="login_form_wrapper mt-20">
+                        <div class="header_block">
+                            <div class="d-flex justify-content-end mb-10 mt-10">
+                                <a href="login.html" class="no-anchor">
+                                    <button type="button" class="btn btn-dark">
+                                        LOGIN IN
+                                    </button>
+                                </a>
+                            </div>
+                            <img src="~/Assets/images/registration_header.png" class="img-fluid header_img">
+                        </div>
+                        <div class="login_form_block">
+                            <h4 class="mb-25">Registration</h4>
+
+                            <form id="frmRegistration" class="login_form" method="post">
+                                @Html.Hidden("hiddenBaseURL", Url.Content("~/"), new { @id = "hiddenBaseURL" })
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.EmailId, new { @type = "email", @class = "form-control custom_form_control", @id = "r_EMAILID", @placeholder = "EMAIL ID" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.UserName, new { @type = "text", @class = "form-control custom_form_control", @id = "r_NAME", @placeholder = "NAME" })
+                                </div>
+
+                                @*<div class="form-group">
+                                    @Html.TextBoxFor(m => m.LoginName, new { @type = "text", @class = "form-control custom_form_control", @id = "r_LOGINNAME", @placeholder = "LOGIN NAME" })
+                                </div>*@
+
+                                <div class="form-group mb-20">
+                                    @Html.TextBoxFor(m => m.SchoolCode, new { @type = "text", @class = "form-control custom_form_control", @id = "r_SCHOOLCODE", @placeholder = "SCHOOL CODE" })
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <button id="regSubmit" class="btn btn-dark">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/Assets/js/jquery-3.1.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="~/Assets/js/script.js"></script>
+    <!--custom select js-->
+    <script src="~/Assets/js/select.js"></script>
+    <script src="~/Assets/js/Custom/registration.js"></script>
+    <script src="~/Assets/js/Custom/common.js"></script>
+    <script type="text/javascript" src="~/Assets/js/Custom/toastr.min.js"></script>
+    <script type="text/javascript" src="~/Assets/js/Custom/toastrsample.js"></script>
+</body>
+
+</html>

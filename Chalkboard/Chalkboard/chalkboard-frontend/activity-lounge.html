@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Global CSS files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--media query related css-->
+    <link rel="stylesheet" href="assets/css/device.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/bootstrap-multiselect.css">
+    <!-- card image carousel effect -->
+    <link rel="stylesheet" href="assets/plugins/owl.carousel.css">
+    <link rel="stylesheet" href="assets/plugins/image-carousel.css">
+
+    <title>Chalkboard - Activity Lounge</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="activity_page">
+                    
+                   <!--global header-->
+                   <div class="globalHeader">
+                      <!--top right side section-->
+                       <div class="profile_section">
+                        <div class="badgeIcon">
+                         <img src="assets/images/badge.png" class="img-fluid">
+                         </div>
+                         
+                          <div class="nameBlock mr-10">
+                               <p class="user_name">Jade Anderson</p>
+                               <p class="user_level">Learner</p>
+                          </div>
+                          
+                           <div class="profileIconBlock">
+                               <a href="#">
+                                   <img src="assets/images/profile_pic.png" 
+                                   class="img-fluid profileIcon">
+                               </a>
+                           </div>
+                           
+                           <div class="logout mr-10">
+                               <a href="#" class="no-anchor">
+                               Logout
+                               <img src="assets/images/logout.png" 
+                               class="img-fluid">
+                               </a> 
+                          </div> 
+                       </div>
+                       <!--top right side section ends here-->
+                       
+                       <!--logo block-->
+                       <div class="text-center cb_logoBlock">
+                           <img src="assets/images/cblogo.png" class="img-fluid chalkboard_logo">
+                           <h4 class="chalkboard_label">Chalkboard</h4>
+                       </div>
+                       <!--logo block ends here-->
+                   </div>
+                   <!--global header ends here-->
+                    
+                    
+                    <div class="activity_header">
+                         <h1>Activity Lounge</h1>
+                    </div>
+                    
+                    <div class="activity_selection mt-40">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4 mb-20">
+                            <label class="my-1 mr-10 cb_dropdown_label" for="selectingTeacher">Teacher</label> 
+                                  <select id="selectTeacher" multiple="multiple"> 
+                                      <option value="option1">Option 1</option>
+                                      <option value="option2">Option 2</option> 
+                                      <option value="option3">Option 3</option> 
+                                  </select>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4 mb-20">
+                        <label class="my-1 mr-10 cb_dropdown_label" for="selectingClass">Class</label> 
+                                  <select id="selectClass" multiple="multiple"> 
+                                      <option value="option1">Option 1</option>
+                                      <option value="option2">Option 2</option> 
+                                      <option value="option3">Option 3</option> 
+                                  </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-lg-4"> 
+                              <div class="form-inline search_block">
+                                  <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search...">
+                                  <span class="input-group-append search_icon">
+                                      <button class="btn  border-0 no-outline" type="button">
+                                          <i class="fa fa-search"></i>
+                                      </button>
+                                  </span>
+                              </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        
+        <!--block section and card carousel-->
+        <div class="row justify-content-center">
+              <div class="col-12 col-sm-6 col-md-4 col-lg">
+                <div class="activity_blocks bg1">
+                    <a href="#" class="no-anchor">
+                        <h6>All Activities</h6>
+                        <h4>Activities</h4>
+                    </a>
+                    <span class="bottomIcon"></span>
+                </div>
+            </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg">
+                <div class="activity_blocks bg2">
+                    <a href="#" class="no-anchor">
+                    <h6>Chalkboard</h6>
+                    <h4>Pictures</h4>
+                    </a>
+                </div>
+            </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg">
+                <div class="activity_blocks bg3">
+                    <a href="#" class="no-anchor">
+                    <h6>Chalkboard</h6>
+                    <h4>Stories</h4>
+                    </a>
+                </div>
+            </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg">
+                <div class="activity_blocks bg4">
+                    <a href="#" class="no-anchor">
+                    <h6>Chalkboard</h6>
+                    <h4>Animations</h4>
+                    </a>
+                </div>
+            </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg">
+                <div class="activity_blocks bg5">
+                    <a href="#" class="no-anchor">
+                    <h6>Chalkboard</h6>
+                    <h4>Games</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+         
+    </div>
+    
+    <div class="CBsliderWrapper">
+    <!-- chalboard image slider-->
+    <div class="container-fluid">
+        <!-- CLASS 1G -->
+        <div class="row">
+            <div class="col"> 
+                <div class="class_headers mt-10">Class 1G</div>
+                <div id="CBSlider"> 
+                    <div class="owl-carousel owl-theme">
+                         <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                          
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                          
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div> 
+        <!-- CLASS 1G ENDS HERE-->
+        
+        <!-- CLASS 2C -->
+        <div class="row">
+            <div class="col"> 
+                <div class="class_headers mt-5">Class 2C</div>
+                <div id="CBSlider"> 
+                    <div class="owl-carousel owl-theme">
+                         <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                          
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                          
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div> 
+        <!-- CLASS 2C ENDS HERE-->
+        
+        <!-- CLASS 4A -->
+        <div class="row">
+            <div class="col"> 
+              <div class="class_headers mt-5">Class 4A</div>
+                <div id="CBSlider"> 
+                    <div class="owl-carousel owl-theme">
+                         <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+                        
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                          
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                          
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards3.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                        <!-- Box Start -->
+                        <div class="box">
+                            <img src="assets/images/cards1.jpg">
+                            <a href="#">
+                                <div class="overlay">
+                                    <div class="row-3"> 
+                                        <p class="mainTitle">Lorem Ipsum</p>
+                                        <p class="subTitle">"Neque porro quisquam est qui dolorem"</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Box End -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div> 
+        <!-- CLASS 4A ENDS HERE-->
+    </div>
+    
+    <!--ADD ACTIVITY SECTION -->
+    <div class="add_activity">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-dark cb_btn"
+                            data-toggle="modal" data-target="#addActivityModal">
+                        ADD ACTIVITY
+                    </button> 
+
+                    <!-- Add Activity Modal-->
+            <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <!--modal inner content--> 
+                            <div class="activity_modal">
+                                <div class="activity_header"> 
+                                    <div class="row align-items-center">
+                                        <div class="col header_line"></div>
+                                        <div class="col-auto">
+                                            <h3 class="d-inline-block">Select Activity</h3>
+                                        </div>
+                                        <div class="col header_line"></div>
+                                    </div> 
+                                </div>
+
+                                <!--class assigned block-->
+                                <div class="row justify-content-center"> 
+                                    <div class="col-auto class_assigned">
+                                         <label class="my-1 mr-10 cb_dropdown_label" for="classAssigned">Classes Assigned</label>
+                                        <select id="classAssigned" multiple="multiple">
+                                            <option value="option1">Option 1</option>
+                                            <option value="option2">Option 2</option>
+                                            <option value="option3">Option 3</option>
+                                        </select>
+                                    </div> 
+                                </div> 
+                                <!--class assignee block ends here-->
+
+                                <div class="add_activity_boxes">
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
+                                            <div class="add_activity_block bg2">
+                                                <a href="javascript:void(0)" class="no-anchor">
+                                                    <h4>Pictures</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="add_activity_block bg3">
+                                                <a href="javascript:void(0)" class="no-anchor">
+                                                    <h4>Stories</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="add_activity_block bg5">
+                                                <a href="javascript:void(0)" class="no-anchor">
+                                                    <h4>Games</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="add_activity_block bg4">
+                                                <a href="javascript:void(0)" class="no-anchor">
+                                                    <h4>Animations</h4>
+                                                </a>
+                                            </div> 
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="row justify-content-center mt-30">
+                                <button type="button" class="btn btn-dark cb_btn mr-30">
+                                    CONTINUE
+                                </button>
+                                <button type="button" class="btn btn-dark cb_btn bordered" data-dismiss="modal">
+                                    CANCEL
+                                </button>
+                                    </div>
+                            </div>
+                            <!--modal inner content ends here-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                    <!-- Add Activity Modal ends here-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ADD ACTIVITY SECTION ENDS HERE-->
+    </div>    
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->  
+    <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+    
+    <!--multiselect plugin-->
+    <script src="assets/plugins/bootstrap-multiselect.js"></script>
+    <!--script for the card image carousel effect-->
+    <script src="assets/plugins/owl.carousel.js"></script>
+    <script src="assets/plugins/image-carousel.js"></script>
+
+    <!-- multiselect plugin script for select dropdown -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#selectTeacher').multiselect({
+                includeSelectAllOption: true,
+                selectAllText: 'Select all',
+                nonSelectedText: 'Select an option'
+            });
+
+            $('#selectClass').multiselect({
+                includeSelectAllOption: true,
+                selectAllText: 'Select all',
+                nonSelectedText: 'Select an option'
+            });
+
+        });
+    </script>
+    
+    <!--multiselect script for class assignee dropdown-->
+    <script>
+        $(document).ready(function() {
+            $('#classAssigned').multiselect({
+                includeSelectAllOption: true,
+                selectAllText: 'Select all',
+                nonSelectedText: 'Select an option',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true
+            });
+        });
+    </script>
+
+</body>
+
+</html>
